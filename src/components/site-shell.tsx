@@ -23,13 +23,13 @@ export function SiteHeader() {
         {links.map(([to, label]) => <Link key={to} to={to} className="nav-link" activeProps={{ className: "nav-link text-lime" }}>{label}</Link>)}
       </nav>
       <Button asChild className="hidden rounded-full border border-lime bg-transparent px-6 text-lime hover:bg-lime hover:text-primary-foreground lg:inline-flex">
-        <Link to="/register">Enter FINVERSE <ArrowUpRight /></Link>
+        <Link to="/register" search={{}}>Enter FINVERSE <ArrowUpRight /></Link>
       </Button>
       <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"}>{open ? <X /> : <Menu />}</Button>
     </div>
     {open && <nav className="fixed inset-0 top-20 z-40 flex min-h-[calc(100svh-5rem)] flex-col bg-background px-5 py-8 lg:hidden" aria-label="Mobile navigation">
       {links.map(([to, label], i) => <Link key={to} to={to} onClick={() => setOpen(false)} className="border-b border-border py-5 font-display text-4xl"><span className="mr-4 font-mono text-xs text-lime">0{i + 1}</span>{label}</Link>)}
-      <Button asChild className="mt-8 h-14 rounded-full"><Link to="/register" onClick={() => setOpen(false)}>Enter FINVERSE <ArrowUpRight /></Link></Button>
+      <Button asChild className="mt-8 h-14 rounded-full"><Link to="/register" search={{}} onClick={() => setOpen(false)}>Enter FINVERSE <ArrowUpRight /></Link></Button>
     </nav>}
   </header>;
 }
