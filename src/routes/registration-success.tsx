@@ -1,5 +1,42 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-export const Route=createFileRoute("/registration-success")({validateSearch:(s:Record<string,unknown>)=>({id:typeof s['id']==="string"?s['id']:"—",event:typeof s['event']==="string"?s['event']:"FINVERSE ’26"}),component:Success});
-function Success(){const s=Route.useSearch();return <main className="site-container flex min-h-screen items-center justify-center py-28 text-center"><div><span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-lime text-lime"><Check/></span><p className="eyebrow mt-8">REGISTRATION RECEIVED</p><h1 className="mt-5 font-display text-6xl md:text-8xl">YOU’RE IN THE<br/><span className="text-lime">MARKET.</span></h1><p className="mt-7 text-muted-foreground">Your entry for {s.event} has been recorded.</p><div className="mx-auto mt-8 max-w-md border border-border bg-surface p-5"><p className="font-mono text-[10px] tracking-widest text-muted-foreground">REGISTRATION ID</p><p className="mt-2 font-mono text-xl text-lime">{s.id}</p></div><Button asChild variant="outline" className="mt-8 rounded-full"><Link to="/">Return home <ArrowRight/></Link></Button></div></main>}
+
+export const Route = createFileRoute("/registration-success")({
+  validateSearch: (s: Record<string, unknown>) => ({
+    id: typeof s['id'] === "string" ? s['id'] : "—",
+    event: typeof s['event'] === "string" ? s['event'] : "FINVERSE ’26",
+  }),
+  head: ({ search }) => ({
+    meta: [
+      { title: `Registered — ${search.event} | FINVERSE ’26` },
+      { name: "description", content: `Your registration for ${search.event} at FINVERSE ’26 has been received.` },
+      { property: "og:title", content: `Registered — ${search.event} | FINVERSE ’26` },
+      { property: "og:description", content: `Your registration for ${search.event} at FINVERSE ’26 has been received.` },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Success,
+});
+
+function Success() {
+  const s = Route.useSearch();
+  return (
+    <main className="site-container flex min-h-screen items-center justify-center py-28 text-center">
+      <div>
+        <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-lime text-lime"><Check /></span>
+        <p className="eyebrow mt-8">REGISTRATION RECEIVED</p>
+        <h1 className="mt-5 font-display text-6xl md:text-8xl">YOU’RE IN THE<br /><span className="text-lime">MARKET.</span></h1>
+        <p className="mt-7 text-muted-foreground">Your entry for {s.event} has been recorded.</p>
+        <div className="mx-auto mt-8 max-w-md border border-border bg-surface p-5">
+          <p className="font-mono text-[10px] tracking-widest text-muted-foreground">REGISTRATION ID</p>
+          <p className="mt-2 font-mono text-xl text-lime">{s.id}</p>
+        </div>
+        <Button asChild variant="outline" className="mt-8 rounded-full">
+          <Link to="/">Return home <ArrowRight /></Link>
+        </Button>
+      </div>
+    </main>
+  );
+}
