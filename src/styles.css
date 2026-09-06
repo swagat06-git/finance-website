@@ -158,7 +158,13 @@
   }
 }
 
-@utility site-container { width: min(100% - 2.5rem, 80rem); margin-inline: auto; }
+@utility site-container {
+  width: min(100% - 2.5rem, 80rem);
+  margin-inline: auto;
+  @media (min-width: 768px) {
+    width: min(100% - 4rem, 80rem);
+  }
+}
 @utility eyebrow { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--color-lime); }
 @utility section-title { font-family: var(--font-display); font-size: clamp(4rem, 10vw, 9rem); line-height: .86; }
 @utility nav-link { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; transition: color .2s ease; &:hover { color: var(--color-lime); } }
@@ -167,5 +173,4 @@ html { scroll-behavior: smooth; }
 ::selection { background: var(--color-lime); color: var(--color-primary-foreground); }
 button, a { letter-spacing: 0; }
 summary::-webkit-details-marker { display: none; }
-@media (min-width: 768px) { @utility site-container { width: min(100% - 4rem, 80rem); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
