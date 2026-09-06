@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import hero from "@/assets/finverse-approved-hero.png.asset.json";
+import hero from "@/assets/finverse-hero-no-button.png.asset.json";
 import { articles, events, metrics, themes } from "@/lib/finverse-data";
 
 export function HomePage() {
