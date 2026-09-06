@@ -1,0 +1,4 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { EmptyEditorial, PageIntro } from "@/components/site-shell";
+export const Route = createFileRoute("/speakers")({ component: Speakers });
+function Speakers() { return <main><PageIntro index="03" title="THE MINDS BEHIND THE MOVES." copy="Perspectives from people who understand how markets, institutions and decisions are changing." /><section className="site-container py-24"><EmptyEditorial title="THE ROOM IS TAKING SHAPE." copy="Verified speakers will be announced here. We do not publish names until participation is confirmed." /></section></main>; }

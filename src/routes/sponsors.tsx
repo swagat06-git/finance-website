@@ -1,0 +1,4 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { EmptyEditorial, PageIntro } from "@/components/site-shell";
+export const Route = createFileRoute("/sponsors")({ component: Sponsors });
+function Sponsors() { return <main><PageIntro index="05" title="BACKED BY BELIEF." copy="Partners who believe in better questions, sharper decisions and the next generation of financial thinkers." /><section className="site-container py-24"><EmptyEditorial title="PARTNERSHIPS IN PROGRESS." copy="Confirmed partners and sponsor tiers will be published here as they are finalised." /></section></main>; }

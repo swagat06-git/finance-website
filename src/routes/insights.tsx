@@ -1,0 +1,5 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PageIntro } from "@/components/site-shell";
+import { articles } from "@/lib/finverse-data";
+export const Route = createFileRoute("/insights")({ component: Insights });
+function Insights() { return <main><PageIntro index="06" title="THE INTELLIGENCE ROOM." copy="Briefs, provocations and ideas for the financially curious. Read the signal before the noise." /><section className="site-container grid gap-0 py-24 md:grid-cols-3">{articles.map((a,i)=><article key={a.title} className="border-t border-border py-10 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0"><p className="eyebrow">0{i+1} / {a.category}</p><h2 className="mt-12 font-display text-5xl">{a.title}</h2><p className="mt-6 leading-relaxed text-muted-foreground">{a.excerpt}</p><p className="mt-8 font-mono text-[10px] tracking-widest text-muted-foreground">FIELD NOTE · COMING SOON</p></article>)}</section></main>; }

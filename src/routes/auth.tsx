@@ -1,0 +1,9 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { lovable } from "@/integrations/lovable";
+import logo from "@/assets/finverse-logo-transparent.png.asset.json";
+
+export const Route = createFileRoute("/auth")({ component: Auth });
+function Auth(){const[loading,setLoading]=useState(false);const[error,setError]=useState("");async function signIn(){setLoading(true);setError("");const result=await lovable.auth.signInWithOAuth("google",{redirect_uri:`${location.origin}/admin`});if(result.error){setError(result.error.message);setLoading(false);}}return <main className="grid min-h-screen md:grid-cols-2"><section className="hidden border-r border-border bg-surface p-12 md:flex md:flex-col md:justify-between"><Link to="/" className="nav-link inline-flex items-center gap-2"><ArrowLeft className="h-4 w-4"/> Back to FINVERSE</Link><h1 className="font-display text-7xl">CONTROL<br/><span className="text-lime">THE SIGNAL.</span></h1><p className="font-mono text-xs text-muted-foreground">FINVERSE ’26 / ADMINISTRATION</p></section><section className="flex items-center justify-center p-6"><div className="w-full max-w-md"><img src={logo.url} alt="Finance Club" className="h-20 w-20 object-contain"/><p className="eyebrow mt-8">SECURE ACCESS</p><h2 className="mt-4 font-display text-5xl">Admin sign in</h2><p className="mt-4 text-sm leading-relaxed text-muted-foreground">Sign in with your authorised Google account to manage FINVERSE content and registrations.</p><Button onClick={signIn} disabled={loading} className="mt-8 h-12 w-full rounded-full">{loading?"Connecting…":"Continue with Google"}</Button>{error&&<p className="mt-4 text-sm text-red-400">{error}</p>}<Link to="/" className="nav-link mt-8 inline-flex md:hidden">← Back home</Link></div></section></main>}
