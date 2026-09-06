@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
 
-export const Route = createFileRoute("/register")({ validateSearch: (s: Record<string, unknown>) => ({ event: typeof s.event === "string" ? s.event : undefined }), component: Register });
+export const Route = createFileRoute("/register")({ validateSearch: (s: Record<string, unknown>) => { const search: { event?: string } = {}; if (typeof s['event'] === "string") search.event = s['event']; return search; }, component: Register });
 type EventRow = { id: string; title: string; slug: string; registration_open: boolean };
 function Register(){ const search=Route.useSearch(); const navigate=useNavigate(); const [events,setEvents]=useState<EventRow[]>([]); const [loading,setLoading]=useState(false); const [error,setError]=useState("");
   useEffect(()=>{void supabase.from("events").select("id,title,slug,registration_open").order("display_order").then(({data})=>setEvents(data??[]));},[]);
