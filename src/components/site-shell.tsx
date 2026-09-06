@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/finverse-logo-transparent.png.asset.json";
+import logo from "@/assets/FC_LOGO-removebg-preview.png";
 
 const links = [
   ["/about", "About"], ["/events", "Events"], ["/speakers", "Speakers"],
@@ -16,7 +16,7 @@ export function SiteHeader() {
   return <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur-xl">
     <div className="site-container flex h-20 items-center justify-between">
       <Link to="/" className="flex items-center gap-3" aria-label="FINVERSE home">
-        <img src={logo.url} alt="Finance Club" className="h-11 w-11 object-contain" />
+        <img src={logo} alt="Finance Club" className="h-11 w-11 object-contain" />
         <span className="font-display text-2xl leading-none">FINVERSE <b className="text-lime font-normal">’26</b></span>
       </Link>
       <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
