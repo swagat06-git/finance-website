@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 import hero from "@/assets/hero.jpeg";
-import logo from "@/assets/FC_LOGO-removebg-preview.png";
+
 
 import {
   articles,
@@ -95,15 +95,7 @@ export function HomePage() {
 
         <div className="site-container relative z-20 flex min-h-[calc(100svh-5rem)] flex-col justify-end pb-8">
 
-          {/* Finance Club logo */}
-          <div className="absolute left-6 top-8 md:left-10 md:top-10">
-            <img
-              src={logo}
-              alt="Finance Club NIT Rourkela"
-              className="h-14 w-auto object-contain md:h-20"
-            />
-          </div>
-
+          
           {/* Bottom information */}
           <div className="flex items-end justify-between">
 
