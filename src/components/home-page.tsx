@@ -27,6 +27,9 @@ export function HomePage() {
         <a href="#market" className="mx-auto flex flex-col items-center gap-2 font-mono text-[10px] uppercase tracking-[.24em] text-cream">Scroll to explore <ArrowDown className="h-5 w-5 text-lime" /></a>
         <span className="hidden font-mono text-[10px] text-muted-foreground md:block">EST. 2026</span>
       </div>
+      <Button asChild size="lg" className="absolute left-6 top-[58%] z-20 h-12 rounded-full border border-lime bg-background/80 px-6 text-lime backdrop-blur-md hover:bg-lime hover:text-primary-foreground md:left-[6%] md:top-[55%] md:h-14 md:px-8">
+        <Link to="/register" search={{}}>Enter FINVERSE <ArrowRight className="ml-2 h-4 w-4" /></Link>
+      </Button>
     </section>
 
     <section id="market" className="market-section site-container flex min-h-[110vh] flex-col justify-center py-24">
