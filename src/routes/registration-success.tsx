@@ -7,12 +7,12 @@ export const Route = createFileRoute("/registration-success")({
     id: typeof s['id'] === "string" ? s['id'] : "—",
     event: typeof s['event'] === "string" ? s['event'] : "FINVERSE ’26",
   }),
-  head: ({ search }) => ({
+  head: () => ({
     meta: [
-      { title: `Registered — ${search.event} | FINVERSE ’26` },
-      { name: "description", content: `Your registration for ${search.event} at FINVERSE ’26 has been received.` },
-      { property: "og:title", content: `Registered — ${search.event} | FINVERSE ’26` },
-      { property: "og:description", content: `Your registration for ${search.event} at FINVERSE ’26 has been received.` },
+      { title: "Registered — FINVERSE ’26 | Finance Club, NIT Rourkela" },
+      { name: "description", content: "Your registration for FINVERSE ’26 has been received. Save your registration ID for future reference." },
+      { property: "og:title", content: "Registered — FINVERSE ’26 | Finance Club, NIT Rourkela" },
+      { property: "og:description", content: "Your registration for FINVERSE ’26 has been received. Save your registration ID for future reference." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
